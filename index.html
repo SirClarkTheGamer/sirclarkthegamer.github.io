@@ -3,6 +3,43 @@
 <head>
   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+        // Wait for the window to finish loading
+        window.addEventListener('DOMContentLoaded', () => {
+            // Get the initial title text and add a little spacing at the end
+            let titleText = document.title + "   "; 
+
+            // Set the interval to animate the text every 200 milliseconds
+            setInterval(() => {
+                // Move the first character to the end of the string
+                titleText = titleText.substring(1) + titleText.substring(0, 1);
+                // Update the browser tab title
+                document.title = titleText;
+            }, 200); // 200ms = speed of the scroll (lower is faster)
+        });
+    </script> 
+  <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            
+            /* 1. Define your grid size and colors */
+            --square-size: 20px;
+            --color-light: #ffffff;
+            --color-dark: #e0e0e0;
+
+            /* 2. Create the checkerboard logic */
+            background-image: conic-gradient(
+                var(--color-dark) 25%, 
+                var(--color-light) 0 50%, 
+                var(--color-dark) 0 75%, 
+                var(--color-light) 0
+            );
+
+            /* 3. Scale and repeat the pattern */
+            background-size: calc(var(--square-size) * 2) calc(var(--square-size) * 2);
+        }
+    </style>
 <title>cool site</title>
 </head>
 
